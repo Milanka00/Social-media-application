@@ -14,7 +14,7 @@ const NavBar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-2">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item ms-2 me-2">
           <a class="nav-link" href="#">About Us</a>
@@ -25,7 +25,7 @@ const NavBar = () => {
         </li>
 
         <li class="nav-item ms-2 me-2">
-          <a class="nav-link" href="#">FuturePro Net</a>
+          <a class="nav-link" href="/futurePronet">FuturePro Net</a>
         </li>
 
         {/* <li class="nav-item dropdown ms-2 me-2">

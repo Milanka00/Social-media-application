@@ -24,7 +24,11 @@ const NavBar = () => {
           <a class="nav-link" href="#">Services</a>
         </li>
 
-        <li class="nav-item dropdown ms-2 me-2">
+        <li class="nav-item ms-2 me-2">
+          <a class="nav-link" href="#">FuturePro Net</a>
+        </li>
+
+        {/* <li class="nav-item dropdown ms-2 me-2">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
@@ -34,7 +38,7 @@ const NavBar = () => {
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li>
+        </li> */}
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>

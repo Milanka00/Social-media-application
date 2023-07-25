@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import { addDoc } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
+import { db,auth} from '../firebase-config';
 
 const Modal = () => {
 
@@ -8,6 +9,8 @@ const Modal = () => {
     const [color, setColor] = useState('#563d7c');
     const [titleError, setTitleError] = useState('');
     const [questionError, setQuestionError] = useState('');
+
+    const postsCollectionRef=collection(db,"posts");
   
     const handleTitleChange = (e) => {
       setTitle(e.target.value);
@@ -23,8 +26,17 @@ const Modal = () => {
       setColor(e.target.value);
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
+
+        // Check if the user is authenticated
+  if (!auth.currentUser) {
+    // If the user is not signed in, display an alert or redirect to the sign-in page
+    alert('You must sign in to create a post.');
+    // Alternatively, you can redirect the user to the sign-in page
+    // Example: navigate('/signin') if you are using React Router
+    return;
+  }
   
       // Perform validation
       let formIsValid = true;
@@ -40,10 +52,19 @@ const Modal = () => {
       if (formIsValid) {
         // Perform additional form submission logic here
         // For example, API calls, saving to the database, etc.
+
+        await addDoc(postsCollectionRef, {title:title, postText:question, postColor:color,author:{name:auth.currentUser.displayName,id:auth.currentUser.uid},});
   
         console.log('Title:', title);
         console.log('Question:', question);
         console.log('Color:', color);
+
+        alert('Form submitted successfully!');
+
+        // Clear the form fields
+        setTitle('');
+        setQuestion('');
+        setColor('#563d7c');
       }
     };
 

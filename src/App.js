@@ -16,7 +16,7 @@ function App() {
      
       <Router>
         <Routes>
-          <Route path='/' element={<LandingPage />}/>
+          <Route path='/' element={<LandingPage setAuth={setAuth} />}/>
           <Route path='/futurePronet' element={<NetPage setAuth={setAuth}/>}/>
         </Routes>
       </Router>
